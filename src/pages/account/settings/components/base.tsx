@@ -9,7 +9,7 @@ import ProForm, {
   ProFormTextArea,
 } from '@ant-design/pro-form';
 import { useRequest } from 'umi';
-import { queryCurrent } from '../service';
+import { addTag, queryCurrent } from '../service';
 import { queryProvince, queryCity } from '../service';
 
 import styles from './BaseView.less';
@@ -45,6 +45,11 @@ const BaseView: React.FC = () => {
   const { data: currentUser, loading } = useRequest(() => {
     return queryCurrent();
   });
+
+  const msg = useRequest(() => {
+    return addTag();
+  });
+
 
   const getAvatarURL = () => {
     if (currentUser) {

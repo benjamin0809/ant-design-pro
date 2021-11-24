@@ -52,8 +52,8 @@ const tags = [
 ]
 
 function addTag(req: Request, res: Response) {
-  const tag = req.body
-  tags.push
+  const tag = req.body.tag
+  tags.push(tag)
   return res.json({
     data: {},
   });
@@ -95,4 +95,6 @@ export default {
   'GET  /api/accountSettingCurrentUser': getCurrentUse,
   'GET  /api/geographic/province': getProvince,
   'GET  /api/geographic/city/:province': getCity,
+  'PUT  /api/accountSettingCurrentUser': addTag
+    ,
 };
